@@ -317,6 +317,11 @@
         .new_photo_mlh{font-size: 12px; padding:4px;}
 
     }
+
+    textarea {
+        overflow-y: hidden;
+    }
+
 </style>
 <?php
 } ?>
@@ -1394,12 +1399,12 @@ $language = json_decode($json);
                             <div id="personalinfowithoutpin">
                                 <div class="gap5y"></div>
                                 <h4><?php echo $language->Hometown; ?> </h4>
-                                <textarea id="txthometown" onchange="performfil();" name="personal_info_hometown" class="form-control capitalized" onkeyup="expandtext(this);" placeholder="" rows="3"><?php echo $row['personal_info_hometown']; ?></textarea>
+                                <textarea id="txthometown" onchange="performfil();" name="personal_info_hometown" class="form-control capitalized" placeholder="" rows="3"><?php echo $row['personal_info_hometown']; ?></textarea>
                                 
                                 <div class="gap5y"></div>
                                 <h4 class="mlhmedtitle"><?php echo $language->Nationality." / ".$language->Passport_Visas; ?></h4>
                                 <!--input type="text" name="personal_info_nationality" class="form-control" onkeyup="expandtext(this);" value="<?php echo $row['personal_info_nationality']; ?>"/-->
-                                <textarea name="personal_info_nationality" id="per_inf_nation" onchange="performfil();" class="form-control" onkeyup="expandtext(this);" placeholder="" rows="3"><?php echo $row['personal_info_nationality']; ?></textarea>
+                                <textarea name="personal_info_nationality" id="per_inf_nation" onchange="performfil();" class="form-control" placeholder="" rows="3"><?php echo $row['personal_info_nationality']; ?></textarea>
 
                                 <!--
                                 Please don't Delete. It may need later
@@ -1409,19 +1414,19 @@ $language = json_decode($json);
                                 
                                 <div class="gap5y"></div>
                                 <h4 class="mlhmedtitle"><?php echo $language->Languages; ?></h4>
-                                <textarea id="txtlanguages" onchange="performfil();" name="personal_info_languages" onkeyup="expandtext(this);" class="form-control capitalized" placeholder="" rows="3"><?php echo $row['personal_info_languages']; ?></textarea>
+                                <textarea id="txtlanguages" onchange="performfil();" name="personal_info_languages" class="form-control capitalized" placeholder="" rows="3"><?php echo $row['personal_info_languages']; ?></textarea>
                                 
                                 <div class="gap5y"></div>
                                 <h4 class="mlhmedtitle"><?php echo $language->Religion_Congregation." / ".$language->Diet_or_Food_Restrictions; ?></h4>
-                                <textarea id="txtreligion" onchange="performfil();" name="personal_info_religion" class="form-control capitalized" onkeyup="expandtext(this);" placeholder="" rows="3"><?php echo $row['personal_info_religion']; ?></textarea>
+                                <textarea id="txtreligion" onchange="performfil();" name="personal_info_religion" class="form-control capitalized" placeholder="" rows="3"><?php echo $row['personal_info_religion']; ?></textarea>
 
                                 <div class="gap5y"></div>
                                 <h4 class="mlhmedtitle"><?php echo $language->Other; ?> </h4>
-                                <textarea id="txtotherpersonalinfo" onchange="performfil();" name="personal_info_other" class="form-control capitalized" onkeyup="expandtext(this);" rows="2" placeholder="<?php echo $language->p_info_other; ?>"><?php echo $row['personal_info_other']; ?></textarea>
+                                <textarea id="txtotherpersonalinfo" onchange="performfil();" name="personal_info_other" class="form-control capitalized" rows="2" placeholder="<?php echo $language->p_info_other; ?>"><?php echo $row['personal_info_other']; ?></textarea>
 
                                 <div class="gap5y"></div>
                                 <h4 class="mlhmedtitle"><?php echo $language->Personal_Details; ?> <font class='red'>(<?php echo $language->requires_pin_to_view_2; ?>)</font></h4>
-                                <textarea id="txtpersonalinfoafterpin" onchange="performfil();" name="personal_detail_after_pin" class="form-control capitalized" onkeyup="expandtext(this);" placeholder="<?php echo $language->private_personal_details; ?>" rows="3"><?php echo $row['personal_detail_after_pin']; ?></textarea>
+                                <textarea id="txtpersonalinfoafterpin" onchange="performfil();" name="personal_detail_after_pin" class="form-control capitalized" placeholder="<?php echo $language->private_personal_details; ?>" rows="3"><?php echo $row['personal_detail_after_pin']; ?></textarea>
 
                             </div>
                             <div class="gap5y"></div>
@@ -2433,34 +2438,6 @@ $language = json_decode($json);
                                     </div>
                                     <script type="text/javascript">
 
-                                        /*function remove_doctor(i){
-
-
-
-                                            document.getElementById("doctorname"+i).value = "";
-                                            document.getElementById("doctorphone"+i).value = "";
-                                            //var dr_id = $(this).attr("id");
-
-                                            if (confirm("Are You Sure You Wish To Delete?")) {
-                                                //alert(id);
-                                                $.ajax({
-                                                    url: "<?php echo base_url('home/doctor_delete'); ?>",
-                                                    type: "post",
-                                                    data: {
-                                                        id: id
-                                                    },
-                                                    success: function(success) {
-                                                        if(success=="success"){ alert("Doctor Contact Deleted Successfully");}
-                                                        $('#show_doctor'+id).hide();
-                                                        //var mlhid = "#blog_info_" + blog_id;
-                                                        //$(mlhid).remove();
-                                                    }
-                                                });
-                                            }
-                                        }*/
-
-
-
                                         function expandtext(textArea){
                                             while (
                                             textArea.rows > 1 &&
@@ -2475,23 +2452,7 @@ $language = json_decode($json);
                                             }
                                             textArea.rows++
                                         }
-
-                                        function AutoGrowTextArea(textField)
-                                        {
-
-
-                                            if (textField.clientHeight < textField.scrollHeight)
-                                            {
-                                                textField.style.height = textField.scrollHeight + "px";
-                                                if (textField.clientHeight < textField.scrollHeight)
-                                                {
-                                                    textField.style.height =
-                                                        (textField.scrollHeight * 2 - textField.clientHeight) + "px";
-                                                }
-                                            }
-
-
-                                        }                                    
+                                   
                                     </script>
 
                                     <div class="col-sm-12 nopad-left"><!-- Mozammel Works -->
@@ -2758,8 +2719,12 @@ function blogRemoveItem(){
 }
 
 function diaryEdit(){
+
     var blog_edit_id = $(this).attr("blog_id");
+
     $('#blog_edit_form_' + blog_edit_id).slideDown();
+    $('#blog_desc_' + blog_edit_id).autoResize();
+    $('#blog_desc_' + blog_edit_id).keyup(AutoGrowTextArea);
 
     $('#blog_save_' + blog_edit_id).click(function(e) {
         e.preventDefault();
